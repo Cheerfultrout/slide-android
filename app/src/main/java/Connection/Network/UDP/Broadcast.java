@@ -92,7 +92,7 @@ public class Broadcast
     private InetAddress getBroadcastAddress()
         throws UnknownHostException
     {
-        final WifiManager wifi = (WifiManager) SettingsActivity.getActivity().getSystemService(
+        final WifiManager wifi = (WifiManager) SettingsActivity.getActivity().getApplicationContext().getSystemService(
             Context.WIFI_SERVICE);
         final DhcpInfo dhcp = wifi.getDhcpInfo();
         if (dhcp == null)
