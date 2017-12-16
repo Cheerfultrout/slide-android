@@ -1,12 +1,11 @@
 package Connection.Network;
 
-
 import java.io.IOException;
 
-import Settings.AppSettings;
 import Gesture.Binding.Actions.Toggle;
 import Gesture.Binding.Actions.Trigger;
 import Layout.Enums.PositioningMode;
+import Settings.AppSettings;
 
 public class NetworkConnectionManager
     extends NetworkServer

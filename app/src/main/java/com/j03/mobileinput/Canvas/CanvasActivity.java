@@ -20,12 +20,12 @@ import com.j03.mobileinput.R;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import Settings.AppSettings;
 import Common.SystemInfo;
 import Common.Toast.Toaster;
-import Settings.Enums.ConnectionMode;
 import Gesture.Binding.Actions.Trigger;
 import Layout.Enums.PositioningMode;
+import Settings.AppSettings;
+import Settings.Enums.ConnectionMode;
 
 @TargetApi(19)
 @SuppressLint("InlinedApi")

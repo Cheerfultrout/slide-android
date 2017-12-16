@@ -11,7 +11,6 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.preference.PreferenceManager;
 
-import Settings.AppSettings;
 import Common.SystemInfo;
 
 public class SystemSettings

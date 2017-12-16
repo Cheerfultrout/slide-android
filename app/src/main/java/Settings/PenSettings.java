@@ -51,21 +51,14 @@ public class PenSettings
         {
             // TODO: Nothing really
             return false;
-        } else if (errType == SsdkUnsupportedException.LIBRARY_NOT_INSTALLED)
+        } else if (errType == SsdkUnsupportedException.LIBRARY_NOT_INSTALLED
+                    || errType == SsdkUnsupportedException.LIBRARY_UPDATE_IS_REQUIRED
+                    || errType == SsdkUnsupportedException.LIBRARY_UPDATE_IS_RECOMMENDED)
         {
-            // If SpenSDK APK is not installed.
-            // TODO: Prompt the user
-            return false;
-        } else if (errType
-            == SsdkUnsupportedException.LIBRARY_UPDATE_IS_REQUIRED)
-        {
-            // SpenSDK APK must be updated.
-            // TODO: Prompt the user
-            return false;
-        } else if (errType
-            == SsdkUnsupportedException.LIBRARY_UPDATE_IS_RECOMMENDED)
-        {
-            // Update of SpenSDK APK to an available new version is recommended.
+            // If SpenSDK APK is not installed/must be updated/update recommended
+            /*My reasoning for combining these errors is that the same user response
+            is expected for all of them -> installing an up-to-date version of
+            the SpenSDK APK. Thus a more detailed prompt is not needed*/
             // TODO: Prompt the user
             return false;
         }

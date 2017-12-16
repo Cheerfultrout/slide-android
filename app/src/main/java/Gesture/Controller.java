@@ -12,12 +12,12 @@ import com.samsung.android.sdk.pen.engine.SpenSurfaceView;
 import java.util.ArrayList;
 import java.util.List;
 
-import Settings.AppSettings;
 import Gesture.Binding.Actions.Range;
 import Gesture.Binding.Actions.Toggle;
 import Gesture.Binding.Actions.Trigger;
 import Layout.Enums.PositioningMode;
 import Layout.Enums.PressureMode;
+import Settings.AppSettings;
 
 public abstract class Controller
     extends View // TODO: Change to SpenSurfaceView

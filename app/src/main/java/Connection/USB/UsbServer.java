@@ -1,13 +1,15 @@
 package Connection.USB;
 
 import com.j03.mobileinput.SettingsActivity;
+
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import Settings.AppSettings;
+
 import Layout.Enums.PositioningMode;
+import Settings.AppSettings;
 
 public class UsbServer
     extends Thread

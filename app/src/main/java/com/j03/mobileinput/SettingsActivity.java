@@ -14,9 +14,9 @@ import com.samsung.spen.lib.input.SPenEventLibrary;
 
 import java.util.Locale;
 
-import Settings.AppSettings;
 import Common.Enums.AppActivity;
 import Connection.Network.UDP.Broadcast;
+import Settings.AppSettings;
 import Settings.Enums.ConnectionMode;
 import Settings.SettingsElements;
 

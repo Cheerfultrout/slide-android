@@ -2,8 +2,8 @@ package Settings;
 
 import Common.SystemInfo;
 import Connection.Network.NetworkConnectionManager;
-import Settings.Enums.ConnectionMode;
 import Connection.USB.UsbConnectionManager;
+import Settings.Enums.ConnectionMode;
 
 public class ConnectionSettings
 {

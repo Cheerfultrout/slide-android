@@ -8,8 +8,8 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import Settings.AppSettings;
 import Layout.Enums.PositioningMode;
+import Settings.AppSettings;
 
 public class NetworkServer
     extends Thread
@@ -56,7 +56,7 @@ public class NetworkServer
                 AppSettings.getInstance().getConnectionManager().getNetworkConnectionManager().send(
                     PositioningMode.ABSOLUTE, sensitivity); //, DisplayProperties.getDisplayWidth(),
                     // DisplayProperties.getDisplayHeight());
-            } else
+            } else//positioning mode==relative
             {
                 AppSettings.getInstance().getConnectionManager().getNetworkConnectionManager().send(
                     PositioningMode.RELATIVE, sensitivity);

@@ -9,9 +9,9 @@ import android.graphics.Path;
 import android.view.MotionEvent;
 import android.view.View;
 
-import Settings.AppSettings;
 import Gesture.Controller;
 import Gesture.TouchEvents;
+import Settings.AppSettings;
 
 public class CanvasView
     extends Controller

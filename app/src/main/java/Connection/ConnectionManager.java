@@ -9,12 +9,13 @@ public class ConnectionManager
 {
     public void send(final short[] pack)
     {
-        if (AppSettings.getInstance().getConnectionManager().getConnectionMode() == ConnectionMode.WIFI)
+        ConnectionManager inContext = AppSettings.getInstance().getConnectionManager();
+        if (inContext.getConnectionMode() == ConnectionMode.WIFI)
         {
-            AppSettings.getInstance().getConnectionManager().getNetworkConnectionManager().send(pack);
-        } else if (AppSettings.getInstance().getConnectionManager().getConnectionMode() == ConnectionMode.USB)
+            inContext.getNetworkConnectionManager().send(pack);
+        } else if (inContext.getConnectionMode() == ConnectionMode.USB)
         {
-            AppSettings.getInstance().getConnectionManager().getUsbConnectionManager().send(pack);
+            inContext.getUsbConnectionManager().send(pack);
         }
     }
 }

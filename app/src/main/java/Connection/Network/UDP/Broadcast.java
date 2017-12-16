@@ -3,7 +3,9 @@ package Connection.Network.UDP;
 import android.content.Context;
 import android.net.DhcpInfo;
 import android.net.wifi.WifiManager;
+
 import com.j03.mobileinput.SettingsActivity;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -85,7 +87,6 @@ public class Broadcast
                 e.printStackTrace();
             }
         }
-
         broadcastSocket.close();
     }
 

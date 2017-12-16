@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.preference.PreferenceActivity;
 import android.widget.SeekBar;
-import Settings.AppSettings;
+
 import Layout.PreferenceName;
+import Settings.AppSettings;
 
 public class MouseSensitivityPrompt extends SliderPrompt
 {

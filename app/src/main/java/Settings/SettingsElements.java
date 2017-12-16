@@ -8,18 +8,18 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.SwitchPreference;
+
 import com.j03.mobileinput.R;
 
-import Layout.LayoutSettings;
-import Layout.PreferenceName;
-import Settings.AppSettings;
 import Common.Enums.AppActivity;
 import Layout.Enums.PositioningMode;
 import Layout.Enums.PresetSensitivity;
 import Layout.Enums.PressureMode;
 import Layout.Exceptions.WrongTypeException;
-import Layout.Prompts.PressureSensitivityPrompt;
+import Layout.LayoutSettings;
+import Layout.PreferenceName;
 import Layout.Prompts.MouseSensitivityPrompt;
+import Layout.Prompts.PressureSensitivityPrompt;
 
 @SuppressWarnings("deprecation")
 public class SettingsElements
