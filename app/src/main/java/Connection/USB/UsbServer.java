@@ -16,7 +16,7 @@ public class UsbServer
 {
     private ServerSocket server;
     private Socket client;
-    private short port = 8072;
+    private final short port = 8072;
     private ObjectOutputStream output;
     private boolean running = false;
 
