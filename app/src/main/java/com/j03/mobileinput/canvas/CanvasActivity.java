@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -42,6 +43,9 @@ public class CanvasActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .permitNetwork()
+                .build());
         final MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main, menu);
 
@@ -116,7 +120,9 @@ public class CanvasActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .permitNetwork()
+                .build());
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         mainActivityContext = this;

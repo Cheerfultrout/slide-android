@@ -9,7 +9,7 @@ public class PenSettings
 {
     private boolean spenAvailable;
 
-    public PenSettings()
+    PenSettings()
     {
         spenAvailable = false;
     }
@@ -58,7 +58,7 @@ public class PenSettings
             // If SpenSDK APK is not installed/must be updated/update recommended
             /*My reasoning for combining these errors is that the same user response
             is expected for all of them -> installing an up-to-date version of
-            the SpenSDK APK. Thus a more detailed prompt is not needed*/
+            the SpenSDK APK. Thus a more nuanced prompt is not needed*/
             // TODO: Prompt the user
             return false;
         }
