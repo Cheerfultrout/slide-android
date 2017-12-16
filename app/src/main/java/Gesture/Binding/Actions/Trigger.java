@@ -2,7 +2,7 @@ package Gesture.Binding.Actions;
 
 public abstract class Trigger
 {
-    public final static short DEVICE_MESSAGE_ID_BASE = 10000;
+    private final static short DEVICE_MESSAGE_ID_BASE = 10000;
 
     public final static short[] CUT = {DEVICE_MESSAGE_ID_BASE + 18, 0};
     public final static short[] COPY = {DEVICE_MESSAGE_ID_BASE + 19, 0};

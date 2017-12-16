@@ -34,7 +34,7 @@ public class CanvasActivity
 {
 
     public static Activity mainActivityContext;
-    public static Runnable mHideRunnable;
+    private static Runnable mHideRunnable;
 
     private boolean waiting = false;
     private Timer countdown;

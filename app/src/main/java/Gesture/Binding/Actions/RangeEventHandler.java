@@ -1,6 +1,6 @@
 package Gesture.Binding.Actions;
 
-public interface RangeEventHandler
+interface RangeEventHandler
 {
     void onValueChange(int oldValue, int newValue);
 

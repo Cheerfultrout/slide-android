@@ -17,8 +17,8 @@ public class CanvasView
     extends Controller
     implements TouchEvents
 {
-    public static Canvas mCanvas;
-    public static CanvasView drawingContext;
+    private static Canvas mCanvas;
+    private static CanvasView drawingContext;
 
     private Bitmap drawBitmap;
     private final Path drawPath;

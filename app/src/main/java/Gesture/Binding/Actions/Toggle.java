@@ -2,7 +2,7 @@ package Gesture.Binding.Actions;
 
 public abstract class Toggle
 {
-    public final static short DEVICE_MESSAGE_ID_BASE = 10000;
+    private final static short DEVICE_MESSAGE_ID_BASE = 10000;
 
     public final static short[] MOVING = {DEVICE_MESSAGE_ID_BASE + 3, 0};
 

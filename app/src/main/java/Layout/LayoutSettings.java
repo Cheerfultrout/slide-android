@@ -29,12 +29,12 @@ public abstract class LayoutSettings
         return pref.findIndexOfValue(pref.getValue());
     }
 
-    public void setPressureMode(final PressureMode mode)
+    protected void setPressureMode(final PressureMode mode)
     {
         this.pressureMode = mode;
     }
 
-    public void setPressureMode(final int index)
+    protected void setPressureMode(final int index)
     {
         switch (index)
         {
@@ -47,12 +47,12 @@ public abstract class LayoutSettings
         }
     }
 
-    public void setPositioningMode(final PositioningMode mode)
+    protected void setPositioningMode(final PositioningMode mode)
     {
         this.positioningMode = mode;
     }
 
-    public void setPositioningMode(final int index)
+    protected void setPositioningMode(final int index)
     {
         switch (index)
         {
@@ -65,12 +65,12 @@ public abstract class LayoutSettings
         }
     }
 
-    public void setPresetSensitivity(final PresetSensitivity sensitivity)
+    protected void setPresetSensitivity(final PresetSensitivity sensitivity)
     {
         this.presetSensitivity = sensitivity;
     }
 
-    public void setPresetSensitivity(final int index)
+    protected void setPresetSensitivity(final int index)
     {
         switch (index)
         {
@@ -99,37 +99,37 @@ public abstract class LayoutSettings
         this.mouseSensitivity = sensitivity;
     }
 
-    public void setActionBarEnabled(final boolean enabled)
+    protected void setActionBarEnabled(final boolean enabled)
     {
         this.actionBarEnabled = enabled;
     }
 
-    public void setAutoClearEnabled(final boolean enabled)
+    protected void setAutoClearEnabled(final boolean enabled)
     {
         this.autoClearEnabled = enabled;
     }
 
-    public void setDrawPathEnabled(final boolean enabled)
+    protected void setDrawPathEnabled(final boolean enabled)
     {
         this.drawPathEnabled = enabled;
     }
 
-    public void setRightClickEnabled(final boolean enabled)
+    protected void setRightClickEnabled(final boolean enabled)
     {
         this.rightClickEnabled = enabled;
     }
 
-    public void setZoomEnabled(final boolean enabled)
+    protected void setZoomEnabled(final boolean enabled)
     {
         this.zoomEnabled = enabled;
     }
 
-    public void setScrollEnabled(final boolean enabled)
+    protected void setScrollEnabled(final boolean enabled)
     {
         this.scrollEnabled = enabled;
     }
 
-    public void setPressureClickEnabled(final boolean enabled)
+    protected void setPressureClickEnabled(final boolean enabled)
     {
         this.pressureClickEnabled = enabled;
     }
@@ -145,7 +145,7 @@ public abstract class LayoutSettings
         return this.positioningMode;
     }
 
-    public PresetSensitivity getPresetSensitivity()
+    protected PresetSensitivity getPresetSensitivity()
     {
         return this.presetSensitivity;
     }
@@ -155,7 +155,7 @@ public abstract class LayoutSettings
         return this.pressureSensitivity;
     }
 
-    public double getMouseSensitivity()
+    protected double getMouseSensitivity()
     {
         return this.mouseSensitivity;
     }

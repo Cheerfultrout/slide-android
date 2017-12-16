@@ -12,7 +12,7 @@ public class ConnectionSettings
     private NetworkConnectionManager networkConnectionManager;
     private UsbConnectionManager usbConnectionManager;
 
-    public ConnectionSettings()
+    protected ConnectionSettings()
     {
         loadFactoryDefaults();
     }
@@ -56,12 +56,12 @@ public class ConnectionSettings
         this.connectionMode = mode;
     }
 
-    public void setNetworkConnectionManager(final NetworkConnectionManager netMan)
+    private void setNetworkConnectionManager(final NetworkConnectionManager netMan)
     {
         this.networkConnectionManager = netMan;
     }
 
-    public void setUsbConnectionManager(final UsbConnectionManager usbMan)
+    private void setUsbConnectionManager(final UsbConnectionManager usbMan)
     {
         this.usbConnectionManager = usbMan;
     }
@@ -83,7 +83,7 @@ public class ConnectionSettings
     }
 
 
-    public void updateUi(final ConnectionMode mode)
+    private void updateUi(final ConnectionMode mode)
     {
         AppSettings.getInstance().getSettingsElements().getPrefConnectionStatus().setEnabled(false);
         final SystemInfo ipv4 = AppSettings.getInstance().getSystemSettings().getSystemInfo();

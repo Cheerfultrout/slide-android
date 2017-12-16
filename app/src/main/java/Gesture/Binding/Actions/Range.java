@@ -2,7 +2,7 @@ package Gesture.Binding.Actions;
 
 public abstract class Range
 {
-    public final static short DEVICE_MESSAGE_ID_BASE = 10000;
+    private final static short DEVICE_MESSAGE_ID_BASE = 10000;
 
     public final static short[] ZOOM_IN = {DEVICE_MESSAGE_ID_BASE + 12, 0};
     public final static short[] ZOOM_OUT = {DEVICE_MESSAGE_ID_BASE + 13, 0};

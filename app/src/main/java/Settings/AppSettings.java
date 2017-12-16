@@ -99,7 +99,7 @@ public class AppSettings
         settingsElements = el;
     }
 
-    public void setCurrentContext(final Context c)
+    private void setCurrentContext(final Context c)
     {
         currentContext = c;
     }

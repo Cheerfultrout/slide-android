@@ -18,7 +18,7 @@ public abstract class SliderPrompt
     private SeekBar seekbarSensitivity;
     private TextView txtProgress;
 
-    public SliderPrompt(final PreferenceActivity activity, final String title, final String message)
+    SliderPrompt(final PreferenceActivity activity, final String title, final String message)
     {
         final AlertDialog.Builder slidebarBuilder =
             new AlertDialog.Builder(activity);
@@ -63,34 +63,34 @@ public abstract class SliderPrompt
         this.sensitivityDialog.show();
     }
 
-    public void dismissDialog()
+    void dismissDialog()
     {
         this.sensitivityDialog.dismiss();
     }
 
-    public double getSensitivity()
+    double getSensitivity()
     {
         return this.sensitivity;
     }
 
-    public SeekBar getSeekbarSensitivity()
+    SeekBar getSeekbarSensitivity()
     {
         return this.seekbarSensitivity;
     }
 
-    public void setSensitivity(final double sensitivity)
+    void setSensitivity(final double sensitivity)
     {
         this.sensitivity = sensitivity;
     }
 
-    public void setText(final String text)
+    void setText(final String text)
     {
         this.txtProgress.setText(text);
     }
 
-    public abstract DialogInterface.OnClickListener onOk();
+    protected abstract DialogInterface.OnClickListener onOk();
 
-    public abstract DialogInterface.OnShowListener onShow();
+    protected abstract DialogInterface.OnShowListener onShow();
 
-    public abstract SeekBar.OnSeekBarChangeListener onSeekBarChange();
+    protected abstract SeekBar.OnSeekBarChangeListener onSeekBarChange();
 }

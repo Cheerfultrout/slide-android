@@ -65,7 +65,7 @@ public abstract class Controller
         return true;
     }
 
-    int doubleTapIncrement = 0;
+    private int doubleTapIncrement = 0;
     @Override
     public boolean onDoubleTapEvent(final MotionEvent event)
     {
@@ -342,12 +342,12 @@ public abstract class Controller
         return this.touchPoints;
     }
 
-    protected synchronized int getSavedX()
+    private synchronized int getSavedX()
     {
         return this.saved[0];
     }
 
-    protected synchronized int getSavedY()
+    private synchronized int getSavedY()
     {
         return this.saved[1];
     }

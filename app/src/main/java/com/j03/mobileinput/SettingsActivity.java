@@ -24,7 +24,7 @@ public class SettingsActivity
     extends PreferenceActivity
 {
     private static Activity currentActivity;
-    public static SPenEventLibrary spenEvent;
+    private static SPenEventLibrary spenEvent;
     private AlertDialog.Builder prompt;
 
     @Override
@@ -246,7 +246,7 @@ public class SettingsActivity
         AppSettings.getInstance().getConnectionManager().reinitializeServers();
     }
 
-    public void switchInterface(final ConnectionMode mode)
+    private void switchInterface(final ConnectionMode mode)
     {
         AppSettings.getInstance().getConnectionManager().setConnectionMode(mode);
     }

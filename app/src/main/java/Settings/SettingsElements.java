@@ -69,7 +69,7 @@ public class SettingsElements
     }
 
     // Setters
-    public void loadFactoryDefaults()
+    private void loadFactoryDefaults()
     {
         setPressureMode(PressureMode.INITIAL_TOUCH);
         setPositioningMode(PositioningMode.RELATIVE);
@@ -109,7 +109,7 @@ public class SettingsElements
         getPrefMouseSensitivity().setSummary("Mouse sensitivity: 1.0");
     }
 
-    public void loadSavedDefaults()
+    private void loadSavedDefaults()
     {
         setPressureMode(getPressureMode(getPrefPressureMode()));
         setPositioningMode(getPositioningMode(getPrefPositioningMode()));
@@ -147,7 +147,7 @@ public class SettingsElements
     }
 
     // Setters
-    public void setPrefs()
+    private void setPrefs()
     {
         this.prefConnectionStatus = getPref(PreferenceName.CONNECTION_STATUS);
         this.prefMouseSensitivity = getPref(PreferenceName.MOUSE_SENSITIVITY);
@@ -178,7 +178,7 @@ public class SettingsElements
         //setMouseSensitivity((int)this.customPressureSetting.getFloat("", 0));
     }
 
-    public void setPrefListeners()
+    private void setPrefListeners()
     {
         getPrefConnectionStatus().setOnPreferenceClickListener(this);
         getPrefMouseSensitivity().setOnPreferenceClickListener(this);
@@ -200,7 +200,7 @@ public class SettingsElements
         getPrefPressureEnabled().setOnPreferenceChangeListener(this);
     }
 
-    public void setPrefValues()
+    private void setPrefValues()
     {
         if (getPresetSensitivity() == PresetSensitivity.CUSTOM)
         {
@@ -240,76 +240,76 @@ public class SettingsElements
         return this.prefConnectionStatus;
     }
 
-    public Preference getPrefMouseSensitivity() {
+    private Preference getPrefMouseSensitivity() {
         return this.prefMouseSensitivity;
     }
 
-    public Preference getPrefHelp()
+    private Preference getPrefHelp()
     {
         return this.prefHelp;
     }
 
-    public ListPreference getPrefPositioningMode()
+    private ListPreference getPrefPositioningMode()
     {
         return this.prefPositioning;
     }
 
-    public ListPreference getPrefPressureMode()
+    private ListPreference getPrefPressureMode()
     {
         return this.prefPressureMode;
     }
 
-    public ListPreference getPrefPressureSensitivity()
+    private ListPreference getPrefPressureSensitivity()
     {
         return this.prefPresetSensitivity;
     }
 
-    public Preference getPrefCustomPressureSensitivity()
+    private Preference getPrefCustomPressureSensitivity()
     {
         return this.prefCustomPressureSensitivity;
     }
 
-    public SwitchPreference getPrefActionBarEnabled()
+    private SwitchPreference getPrefActionBarEnabled()
     {
         return this.prefActionBarEnabled;
     }
 
-    public SwitchPreference getPrefDrawPathEnabled()
+    private SwitchPreference getPrefDrawPathEnabled()
     {
         return this.prefDrawPathEnabled;
     }
 
-    public SwitchPreference getPrefAutoClearEnabled()
+    private SwitchPreference getPrefAutoClearEnabled()
     {
         return this.prefAutoClearEnabled;
     }
 
-    public SwitchPreference getPrefRightClickEnabled()
+    private SwitchPreference getPrefRightClickEnabled()
     {
         return this.prefRightClickEnabled;
     }
 
-    public SwitchPreference getPrefZoomEnabled()
+    private SwitchPreference getPrefZoomEnabled()
     {
         return this.prefZoomEnabled;
     }
 
-    public SwitchPreference getPrefScrollEnabled()
+    private SwitchPreference getPrefScrollEnabled()
     {
         return this.prefScrollEnabled;
     }
 
-    public SwitchPreference getPrefPressureEnabled()
+    private SwitchPreference getPrefPressureEnabled()
     {
         return this.prefPressureEnabled;
     }
 
-    public MouseSensitivityPrompt getMouseSliderPrompt()
+    private MouseSensitivityPrompt getMouseSliderPrompt()
     {
         return this.mouseSliderPrompt;
     }
 
-    public PressureSensitivityPrompt getPressureSliderPrompt()
+    private PressureSensitivityPrompt getPressureSliderPrompt()
     {
         return this.pressureSliderPrompt;
     }

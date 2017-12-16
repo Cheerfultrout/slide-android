@@ -69,22 +69,22 @@ public class UsbServer
     }
 
     // Getters
-    public short getPort()
+    private short getPort()
     {
         return this.port;
     }
 
-    public ObjectOutputStream getOutput()
+    ObjectOutputStream getOutput()
     {
         return this.output;
     }
 
-    public ServerSocket getServer()
+    ServerSocket getServer()
     {
         return this.server;
     }
 
-    public Socket getClient()
+    Socket getClient()
     {
         return this.client;
     }

@@ -15,7 +15,7 @@ public class ActivitySettings
     final private Intent canvasIntent;
     final private Intent welcomeIntent;
 
-    public ActivitySettings(final Context context)
+    ActivitySettings(final Context context)
     {
         this.settingsIntent = new Intent(context, SettingsActivity.class);
         this.canvasIntent = new Intent(context, CanvasActivity.class);
@@ -51,7 +51,7 @@ public class ActivitySettings
         context.startActivity(activity);
     }
 
-    public Intent getSettingsIntent()
+    private Intent getSettingsIntent()
     {
         return this.settingsIntent;
     }
@@ -61,7 +61,7 @@ public class ActivitySettings
         return this.canvasIntent;
     }
 
-    public Intent getWelcomeIntent()
+    private Intent getWelcomeIntent()
     {
         return this.welcomeIntent;
     }
