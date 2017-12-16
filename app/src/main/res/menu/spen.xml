@@ -1,61 +1,62 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_keyboard"
         android:icon="@drawable/ic_action_keyboard"
         android:title="@string/action_keyboard"
-        android:showAsAction="ifRoom|collapseActionView" />
+        app:showAsAction="ifRoom|collapseActionView" />
     <item
         android:id="@+id/action_cut"
         android:icon="@drawable/ic_action_cut"
         android:title="@string/action_cut"
-        android:showAsAction="always" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_copy"
         android:icon="@drawable/ic_action_copy"
         android:title="@string/action_copy"
-        android:showAsAction="always" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_paste"
         android:icon="@drawable/ic_action_paste"
         android:title="@string/action_paste"
-        android:showAsAction="always" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_pos"
-        android:showAsAction="never"
-        android:title="@string/listPositioningModeTitle" />
+        android:title="@string/listPositioningModeTitle"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_rclick"
-        android:showAsAction="never"
         android:title="@string/controlsRightClick"
-        android:checkable="true" />
+        android:checkable="true"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_zoom"
-        android:showAsAction="never"
         android:title="@string/controlsZoom"
-        android:checkable="true" />
+        android:checkable="true"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_scroll"
-        android:showAsAction="never"
         android:title="@string/controlsScroll"
-        android:checkable="true" />
+        android:checkable="true"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_auto_clear"
-        android:showAsAction="never"
         android:checkable="true"
         android:checked="true"
-        android:title="@string/action_auto_clear" />
+        android:title="@string/action_auto_clear"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_clear_canvas"
-        android:showAsAction="never"
-        android:title="@string/action_clear" />
+        android:title="@string/action_clear"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_bar_enabled"
-        android:showAsAction="never"
         android:checkable="true"
         android:checked="true"
-        android:title="@string/action_bar_enabled" />
+        android:title="@string/action_bar_enabled"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_close"
-        android:showAsAction="never"
-        android:title="@string/action_close" />
+        android:title="@string/action_close"
+        app:showAsAction="never" />
 </menu>

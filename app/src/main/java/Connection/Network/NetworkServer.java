@@ -17,7 +17,7 @@ public class NetworkServer
     private ObjectOutputStream output;
     private ServerSocket server;
     private Socket client;
-    private short port = 8074;
+    private final short port = 8074;
     private boolean running = false;
 
     @Override

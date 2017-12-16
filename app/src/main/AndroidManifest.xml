@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.j03.mobileinput.Canvas.CanvasActivity"
+            android:name="com.j03.mobileinput.canvas.CanvasActivity"
             android:theme="@style/Awesome"
             android:label="@string/app_name"/>
         <activity

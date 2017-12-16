@@ -3,17 +3,17 @@ package Settings;
 import android.content.Context;
 import android.content.Intent;
 
-import com.j03.mobileinput.Canvas.CanvasActivity;
 import com.j03.mobileinput.SettingsActivity;
 import com.j03.mobileinput.WelcomeActivity;
+import com.j03.mobileinput.canvas.CanvasActivity;
 
 import Common.Enums.AppActivity;
 
 public class ActivitySettings
 {
-    private Intent settingsIntent;
-    private Intent canvasIntent;
-    private Intent welcomeIntent;
+    final private Intent settingsIntent;
+    final private Intent canvasIntent;
+    final private Intent welcomeIntent;
 
     public ActivitySettings(final Context context)
     {

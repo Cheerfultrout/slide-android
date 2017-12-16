@@ -28,7 +28,7 @@ public class SettingsElements
 {
     private SharedPreferences sliderSettings;
 
-    private PreferenceActivity activity;
+    private final PreferenceActivity activity;
 
     private Preference prefConnectionStatus;
     private Preference prefMouseSensitivity;

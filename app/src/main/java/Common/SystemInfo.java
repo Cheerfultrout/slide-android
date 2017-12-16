@@ -13,7 +13,7 @@ import Settings.AppSettings;
 
 public class SystemInfo
 {
-    private String rootSite = "http://www.slide-app.com/";
+    private final String rootSite = "http://www.slide-app.com/";
     private short version;
 
     public SystemInfo()

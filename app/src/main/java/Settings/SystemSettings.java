@@ -18,7 +18,7 @@ public class SystemSettings
     private SystemInfo systemInfo;
     private boolean spenRemoved;
     private boolean doubleClickCount;
-    private boolean aboveKitKat;
+    private final boolean aboveKitKat;
 
     public SystemSettings()
     {
@@ -119,7 +119,7 @@ public class SystemSettings
 
     public boolean isWifiConnected(final Context c)
     {
-        final WifiManager wifi = (WifiManager)c.getSystemService(Context.WIFI_SERVICE);
+        final WifiManager wifi = (WifiManager)c.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         NetworkInfo networkInfo;
         if (wifi.isWifiEnabled())
         {

@@ -1,4 +1,4 @@
-package com.j03.mobileinput.Canvas;
+package com.j03.mobileinput.canvas;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

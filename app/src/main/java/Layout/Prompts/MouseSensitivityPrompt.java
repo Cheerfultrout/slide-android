@@ -10,7 +10,7 @@ import Settings.AppSettings;
 
 public class MouseSensitivityPrompt extends SliderPrompt
 {
-    private Activity activity;
+    private final Activity activity;
 
     public MouseSensitivityPrompt(final PreferenceActivity activity)
     {

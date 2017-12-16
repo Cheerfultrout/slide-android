@@ -22,6 +22,6 @@ dependencies {
     compile files('libs/libspen23.jar')
     compile files('libs/sdk-v1.0.0.jar')
 
-    compile "com.android.support:support-v4:22.0.+"
-    compile 'com.android.support:appcompat-v7:22.0.+'
+    compile "com.android.support:support-v4:22.0.0"
+    compile 'com.android.support:appcompat-v7:22.0.0'
 }

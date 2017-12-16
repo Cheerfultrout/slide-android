@@ -6,7 +6,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.j03.mobileinput.Canvas.CanvasActivity;
+import com.j03.mobileinput.canvas.CanvasActivity;
 import com.samsung.android.sdk.pen.engine.SpenSurfaceView;
 
 import java.util.ArrayList;
@@ -24,10 +24,10 @@ public abstract class Controller
     implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener,
     SpenSurfaceView.OnTouchListener, SpenSurfaceView.OnHoverListener
 {
-    private GestureDetector gesture;
+    private final GestureDetector gesture;
 
-    private int[] saved;
-    private List<InputSource> source;
+    private final int[] saved;
+    private final List<InputSource> source;
 
     private int touchPoints;
     private boolean isTouchDown;

@@ -1,4 +1,4 @@
-package com.j03.mobileinput.Canvas;
+package com.j03.mobileinput.canvas;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -21,8 +21,8 @@ public class CanvasView
     public static CanvasView drawingContext;
 
     private Bitmap drawBitmap;
-    private Path drawPath;
-    private Paint drawPaint;
+    private final Path drawPath;
+    private final Paint drawPaint;
 
     private final int backgroundColor = Color.rgb(25, 25, 25);
     private final int drawColor = Color.rgb(255, 255, 255);

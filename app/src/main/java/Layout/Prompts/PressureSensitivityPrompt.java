@@ -9,7 +9,7 @@ import Settings.AppSettings;
 
 public class PressureSensitivityPrompt extends SliderPrompt
 {
-    private PreferenceActivity activity;
+    private final PreferenceActivity activity;
     public PressureSensitivityPrompt(final PreferenceActivity activity)
     {
         super(activity, "Pressure Sensitivity", "Adjust the amount of pressure you must apply before a click is registered.");

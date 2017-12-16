@@ -4,7 +4,7 @@ public class InputSource
 {
     private int x;
     private int y;
-    private int[] coordinates;
+    private final int[] coordinates;
 
     public InputSource()
     {
