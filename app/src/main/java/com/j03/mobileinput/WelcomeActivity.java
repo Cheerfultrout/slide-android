@@ -10,7 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-import Settings.AppSettings;
+import settings.AppSettings;
 
 public class WelcomeActivity
     extends ActionBarActivity

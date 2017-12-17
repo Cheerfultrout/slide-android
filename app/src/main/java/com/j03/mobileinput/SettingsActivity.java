@@ -14,11 +14,11 @@ import com.samsung.spen.lib.input.SPenEventLibrary;
 
 import java.util.Locale;
 
-import Common.Enums.AppActivity;
-import Connection.Network.UDP.Broadcast;
-import Settings.AppSettings;
-import Settings.Enums.ConnectionMode;
-import Settings.SettingsElements;
+import common.enums.AppActivity;
+import connection.network.udp.Broadcast;
+import settings.AppSettings;
+import settings.SettingsElements;
+import settings.enums.ConnectionMode;
 
 public class SettingsActivity
     extends PreferenceActivity

@@ -21,13 +21,13 @@ import com.j03.mobileinput.R;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import Common.SystemInfo;
-import Common.Toast.Toaster;
-import Connection.ConnectionManager;
-import Gesture.Binding.Actions.Trigger;
-import Layout.Enums.PositioningMode;
-import Settings.AppSettings;
-import Settings.Enums.ConnectionMode;
+import common.SystemInfo;
+import common.toast.Toaster;
+import connection.ConnectionManager;
+import gesture.binding.actions.Trigger;
+import layout.enums.PositioningMode;
+import settings.AppSettings;
+import settings.enums.ConnectionMode;
 
 @TargetApi(19)
 @SuppressLint("InlinedApi")
