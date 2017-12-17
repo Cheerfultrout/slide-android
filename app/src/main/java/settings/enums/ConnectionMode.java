@@ -1,4 +1,4 @@
-package Settings.Enums;
+package settings.enums;
 
 public enum ConnectionMode
 {
