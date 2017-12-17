@@ -1,4 +1,4 @@
-package Settings;
+package settings;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import com.j03.mobileinput.SettingsActivity;
 import com.j03.mobileinput.WelcomeActivity;
 import com.j03.mobileinput.canvas.CanvasActivity;
 
-import Common.Enums.AppActivity;
+import common.enums.AppActivity;
 
 public class ActivitySettings
 {
