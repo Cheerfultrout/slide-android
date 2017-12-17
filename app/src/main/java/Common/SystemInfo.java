@@ -30,9 +30,9 @@ public class SystemInfo
     {
         try
         {
-            this.version = (short) AppSettings.getInstance().getCurrentContext().
+            this.version = (short) AppSettings.getCurrentContext().
                 getPackageManager().getPackageInfo(
-                AppSettings.getInstance().getCurrentContext()
+                AppSettings.getCurrentContext()
                     .getPackageName(), 0).versionCode;
         } catch (PackageManager.NameNotFoundException e)
         {

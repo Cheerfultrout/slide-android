@@ -20,7 +20,7 @@ public class SystemSettings
     private boolean doubleClickCount;
     private final boolean aboveKitKat;
 
-    public SystemSettings()
+    SystemSettings()
     {
         systemInfo = new SystemInfo();
         spenRemoved = false;
@@ -47,19 +47,19 @@ public class SystemSettings
     public void setPressureSensitivity(final Context c, final float sensitivity)
     {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
-        prefs.edit().putFloat("custom_pressure", sensitivity).commit();
+        prefs.edit().putFloat("custom_pressure", sensitivity).apply();
     }
 
     public void setMouseSensitivity(final Context c, final float sensitivity)
     {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
-        prefs.edit().putFloat("custom_mouse", sensitivity).commit();
+        prefs.edit().putFloat("custom_mouse", sensitivity).apply();
     }
 
     public void setFirstRun(final boolean firstRun, final Context c)
     {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
-        prefs.edit().putBoolean("firstrun", firstRun).commit();
+        prefs.edit().putBoolean("firstrun", firstRun).apply();
     }
 
     // Getters
@@ -99,13 +99,13 @@ public class SystemSettings
         }
     }
 
-    public float getPressureSensitivity(final Context c)
+    float getPressureSensitivity(final Context c)
     {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
         return prefs.getFloat("custom_pressure", 0);
     }
 
-    public float getMouseSensitivity(final Context c)
+    float getMouseSensitivity(final Context c)
     {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
         return prefs.getFloat("custom_mouse", 0);
@@ -113,7 +113,7 @@ public class SystemSettings
 
     public short getMouseSensitivity()
     {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AppSettings.getInstance().getCurrentContext());
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AppSettings.getCurrentContext());
         return (short) (prefs.getFloat("custom_mouse", 0) * 10);
     }
 

@@ -40,32 +40,32 @@ public class SettingsActivity
 
         addPreferencesFromResource(R.xml.preferences);
 
-        setActivity(this);
+        currentActivity = this;
 
         AppSettings.getInstanceSetContext(this);
 
-        AppSettings.getInstance().getSystemSettings().getSystemInfo().setVersion();
+        AppSettings.getSystemSettings().getSystemInfo().setVersion();
 
-        final boolean firstRun = AppSettings.getInstance().getSystemSettings().getFirstRun(this);
+        final boolean firstRun = AppSettings.getSystemSettings().getFirstRun(this);
 
-        AppSettings.getInstance().setSettingsElements(
+        AppSettings.setSettingsElements(
             new SettingsElements(this, firstRun));
 
         if (firstRun)
         {
-            AppSettings.getInstance().getActivitySettings().loadActivity(
+            AppSettings.getActivitySettings().loadActivity(
                 this,
                 AppActivity.WELCOME);
         }
 
-        AppSettings.getInstance().getPenSettings().setSpenAvailable(this);
+        AppSettings.getPenSettings().setSpenAvailable(this);
 
-        if (AppSettings.getInstance().getSystemSettings().isWifiConnected(this))
+        if (AppSettings.getSystemSettings().isWifiConnected(this))
         {
             final Thread t = new Broadcast(); // TODO: Check for network flooding
             t.start();
         }
-        prompt = new AlertDialog.Builder(getActivity());
+        prompt = new AlertDialog.Builder(this);
 
         this.startUsbDaemon();
     }
@@ -108,7 +108,7 @@ public class SettingsActivity
     private boolean usbDebuggingEnabled()
     {
         return android.provider.Settings.Global.getInt(
-            getActivity().getContentResolver(),
+            this.getContentResolver(),
             android.provider.Settings.Global.ADB_ENABLED,
             0) == 1;
     }
@@ -173,7 +173,7 @@ public class SettingsActivity
                                 {
                                     if (interfaceChanged())
                                     {
-                                        AppSettings.getInstance().getConnectionManager().reinitializeServers();
+                                        AppSettings.getConnectionManager().reinitializeServers();
                                     }
                                 }
                             });
@@ -189,11 +189,11 @@ public class SettingsActivity
 
     private boolean interfaceChanged()
     {
-        if (AppSettings.getInstance().getSystemSettings().isUsbConnected(this))
+        if (AppSettings.getSystemSettings().isUsbConnected(this))
         {
             if (usbDebuggingEnabled()) // Check if USB debugging is enabled
             {
-                if (AppSettings.getInstance().getConnectionManager().getConnectionMode()
+                if (AppSettings.getConnectionManager().getConnectionMode()
                     == ConnectionMode.WIFI)
                 {
                     switchInterface(ConnectionMode.USB);
@@ -204,14 +204,14 @@ public class SettingsActivity
                 }
             } else
             {
-                AppSettings.getInstance().getConnectionManager().setConnectionMode(ConnectionMode.NONE);
+                AppSettings.getConnectionManager().setConnectionMode(ConnectionMode.NONE);
                 return false;
             }
         } else
         {
-            if (AppSettings.getInstance().getSystemSettings().isWifiConnected(this))
+            if (AppSettings.getSystemSettings().isWifiConnected(this))
             {
-                if (AppSettings.getInstance().getConnectionManager().getConnectionMode()
+                if (AppSettings.getConnectionManager().getConnectionMode()
                     == ConnectionMode.USB)
                 {
                     switchInterface(ConnectionMode.WIFI);
@@ -222,7 +222,7 @@ public class SettingsActivity
                 }
             } else
             {
-                AppSettings.getInstance().getConnectionManager().setConnectionMode(ConnectionMode.NONE);
+                AppSettings.getConnectionManager().setConnectionMode(ConnectionMode.NONE);
                 return false;
             }
         }
@@ -230,25 +230,20 @@ public class SettingsActivity
 
     private void startInitial()
     {
-        if (AppSettings.getInstance().getSystemSettings().isUsbConnected(this))
+        if (AppSettings.getSystemSettings().isUsbConnected(this)
+                && usbDebuggingEnabled())// Check if USB debugging is enabled
         {
-            if (usbDebuggingEnabled()) // Check if USB debugging is enabled
-            {
-                switchInterface(ConnectionMode.USB);
-            }
-        } else
+            switchInterface(ConnectionMode.USB);
+        } else if (AppSettings.getSystemSettings().isWifiConnected(this))
         {
-            if (AppSettings.getInstance().getSystemSettings().isWifiConnected(this))
-            {
-                switchInterface(ConnectionMode.WIFI);
-            }
+            switchInterface(ConnectionMode.WIFI);
         }
-        AppSettings.getInstance().getConnectionManager().reinitializeServers();
+        AppSettings.getConnectionManager().reinitializeServers();
     }
 
     private void switchInterface(final ConnectionMode mode)
     {
-        AppSettings.getInstance().getConnectionManager().setConnectionMode(mode);
+        AppSettings.getConnectionManager().setConnectionMode(mode);
     }
 
     @Override
@@ -259,12 +254,10 @@ public class SettingsActivity
         * in onResume() so the check is called every time the app is brought into focus in case
         * the user enabled USB debugging
         */
-        if (AppSettings.getInstance().getSystemSettings().isUsbConnected(this))
+        if (AppSettings.getSystemSettings().isUsbConnected(this)
+                && !usbDebuggingEnabled()) // Check if USB debugging is disabled
         {
-            if (!usbDebuggingEnabled()) // Check if USB debugging is disabled
-            {
-                this.showUsbPrompt(prompt);
-            }
+            this.showUsbPrompt(prompt);
         }
     }
 
@@ -273,7 +266,7 @@ public class SettingsActivity
     {
         if (spenEvent != null)
         {
-            spenEvent.unregisterSPenDetachmentListener(getActivity());
+            spenEvent.unregisterSPenDetachmentListener(this);
         }
         super.onDestroy();
     }
@@ -282,10 +275,5 @@ public class SettingsActivity
     public static Activity getActivity()
     {
         return currentActivity;
-    }
-
-    private void setActivity(final Activity activity)
-    {
-        currentActivity = activity;
-    }
+    }//returns this
 }

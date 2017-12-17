@@ -8,6 +8,7 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import Common.Enums.AppActivity;
 import Layout.Enums.PositioningMode;
 import Settings.AppSettings;
 
@@ -49,22 +50,22 @@ public class NetworkServer
         //connected
         if (client != null)
         {
-            final short sensitivity = AppSettings.getInstance().getSystemSettings().getMouseSensitivity();
+            final short sensitivity = AppSettings.getSystemSettings().getMouseSensitivity();
 
-            if (AppSettings.getInstance().getSettingsElements().getPositioningMode() == PositioningMode.ABSOLUTE)
+            if (AppSettings.getSettingsElements().getPositioningMode() == PositioningMode.ABSOLUTE)
             {
-                AppSettings.getInstance().getConnectionManager().getNetworkConnectionManager().send(
+                AppSettings.getConnectionManager().getNetworkConnectionManager().send(
                     PositioningMode.ABSOLUTE, sensitivity); //, DisplayProperties.getDisplayWidth(),
                     // DisplayProperties.getDisplayHeight());
             } else//positioning mode==relative
             {
-                AppSettings.getInstance().getConnectionManager().getNetworkConnectionManager().send(
+                AppSettings.getConnectionManager().getNetworkConnectionManager().send(
                     PositioningMode.RELATIVE, sensitivity);
             }
 
-            SettingsActivity.getActivity().startActivity(
-                AppSettings.getInstance().getActivitySettings()
-                    .getCanvasIntent()); // Load the Canvas
+            // Load the Canvas
+            AppSettings.getActivitySettings()
+                    .loadActivity(SettingsActivity.getActivity(), AppActivity.CANVAS);
         }
     }
 

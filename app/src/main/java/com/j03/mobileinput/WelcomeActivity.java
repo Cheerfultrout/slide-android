@@ -37,7 +37,7 @@ public class WelcomeActivity
         final TextView i3 = (TextView) findViewById(R.id.nlblPort);
         //i3.setTypeface(sspr);
 
-        final String link = "<font color='#009688'>" + AppSettings.getInstance().getSystemSettings().getSystemInfo().getWebsite() + "</font>";
+        final String link = "<font color='#009688'>" + AppSettings.getSystemSettings().getSystemInfo().getWebsite() + "</font>";
         i3.append("\n" +
             Html.fromHtml(link));
 
@@ -57,7 +57,7 @@ public class WelcomeActivity
             case R.id.nlblPort:
                 final Intent i = new Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse(AppSettings.getInstance().getSystemSettings().getSystemInfo().getWebsite()));
+                    Uri.parse(AppSettings.getSystemSettings().getSystemInfo().getWebsite()));
                 startActivity(i);
                 break;
         }

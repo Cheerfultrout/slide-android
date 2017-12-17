@@ -12,6 +12,7 @@ import com.samsung.android.sdk.pen.engine.SpenSurfaceView;
 import java.util.ArrayList;
 import java.util.List;
 
+import Connection.ConnectionManager;
 import Gesture.Binding.Actions.Range;
 import Gesture.Binding.Actions.Toggle;
 import Gesture.Binding.Actions.Trigger;
@@ -55,7 +56,7 @@ public abstract class Controller
     public boolean onSingleTapConfirmed(final MotionEvent event)
     {
         setPressureToggle(event.getPressure());
-        AppSettings.getInstance().getConnectionManager().send(Trigger.TAP);
+        ConnectionManager.send(Trigger.TAP);
         return true;
     }
 
@@ -85,7 +86,7 @@ public abstract class Controller
                 setMouseUp();
                 if (doubleTapIncrement < 5)
                 {
-                    AppSettings.getInstance().getConnectionManager().send(
+                    ConnectionManager.send(
                         Trigger.TAP);
                 }
                 doubleTapIncrement = 0;
@@ -125,9 +126,9 @@ public abstract class Controller
             case MotionEvent.ACTION_DOWN:
                 if (doubleTapIncrement == 0)
                 {
-                    if (AppSettings.getInstance().getSettingsElements().getRightClickEnabled())
+                    if (AppSettings.getSettingsElements().getRightClickEnabled())
                     {
-                        AppSettings.getInstance().getConnectionManager().send(Trigger.LONG_HOLD);
+                        ConnectionManager.send(Trigger.LONG_HOLD);
                     }
                 }
                 break;
@@ -146,7 +147,7 @@ public abstract class Controller
     {
         getSource(0).setCoordinates((int) event.getX(0), (int) event.getY(0));
 
-        if (AppSettings.getInstance().getSystemSettings().getKitKat())
+        if (AppSettings.getSystemSettings().getKitKat())
         {
             CanvasActivity.hideUi(CanvasActivity.mainActivityContext);
         }
@@ -168,7 +169,7 @@ public abstract class Controller
         {
             case MotionEvent.ACTION_DOWN:
                 setSaved((int) event.getX(0), (int) event.getY(0));
-                AppSettings.getInstance().getConnectionManager().send(Toggle.MOVING);
+                ConnectionManager.send(Toggle.MOVING);
 
                 setTouchDown(true);
 
@@ -181,7 +182,7 @@ public abstract class Controller
             case MotionEvent.ACTION_HOVER_ENTER:
                 // Standard Movement
                 setSaved((int) event.getX(0), (int) event.getY(0));
-                AppSettings.getInstance().getConnectionManager().send(Toggle.MOVING);
+                ConnectionManager.send(Toggle.MOVING);
 
                 setTouchDown(true);
 
@@ -221,7 +222,7 @@ public abstract class Controller
                     {
                         // Moves the pointer
                         final short[] pack = new short[2];
-                        if (AppSettings.getInstance().getSettingsElements().getPositioningMode()
+                        if (AppSettings.getSettingsElements().getPositioningMode()
                             == PositioningMode.RELATIVE)
                         {
                             pack[0] = (short) (getSource(0).getX() - getSavedX());
@@ -231,21 +232,21 @@ public abstract class Controller
                             pack[0] = (short) getSource(0).getX();
                             pack[1] = (short) getSource(0).getY();
                         }
-                        AppSettings.getInstance().getConnectionManager().send(pack);
+                        ConnectionManager.send(pack);
 
-                        if (AppSettings.getInstance().getSettingsElements().getPressureClickEnabled())
+                        if (AppSettings.getSettingsElements().getPressureClickEnabled())
                         {
                             final float pressure = event.getPressure();
-                            if (AppSettings.getInstance().getSettingsElements().getPressureMode() == PressureMode.INITIAL_TOUCH)
+                            if (AppSettings.getSettingsElements().getPressureMode() == PressureMode.INITIAL_TOUCH)
                             {
-                                if (pressure > AppSettings.getInstance().getSettingsElements().getPressureSensitivity())
+                                if (pressure > AppSettings.getSettingsElements().getPressureSensitivity())
                                 {
                                     setMouseDown();
                                 } else
                                 {
                                     setMouseUp();
                                 }
-                            } else if (AppSettings.getInstance().getSettingsElements().getPressureMode() == PressureMode.TOGGLE)
+                            } else if (AppSettings.getSettingsElements().getPressureMode() == PressureMode.TOGGLE)
                             {
                                 if (getPressureToggle())
                                 {
@@ -256,7 +257,7 @@ public abstract class Controller
 
                     } else if (getTouchPoints() == 1)
                     {
-                        if (AppSettings.getInstance().getSettingsElements().getZoomEnabled())
+                        if (AppSettings.getSettingsElements().getZoomEnabled())
                         {
                             final int moveDistance = getDistance(
                                 getSource(0).getX(),
@@ -269,7 +270,7 @@ public abstract class Controller
                                     this.breakpoint++;
                                     if (this.breakpoint == 8)
                                     {
-                                        AppSettings.getInstance().getConnectionManager().send(Range.ZOOM_OUT);
+                                        ConnectionManager.send(Range.ZOOM_OUT);
                                         this.breakpoint = 0;
                                     }
                                 } else if (moveDistance <= this.savedTravel)
@@ -277,7 +278,7 @@ public abstract class Controller
                                     this.breakpoint++;
                                     if (this.breakpoint == 8)
                                     {
-                                        AppSettings.getInstance().getConnectionManager().send(Range.ZOOM_IN);
+                                        ConnectionManager.send(Range.ZOOM_IN);
                                         this.breakpoint = 0;
                                     }
                                 }
@@ -286,7 +287,7 @@ public abstract class Controller
                         }
                     } else if (getTouchPoints() == 2)
                     {
-                        if (AppSettings.getInstance().getSettingsElements().getScrollEnabled())
+                        if (AppSettings.getSettingsElements().getScrollEnabled())
                         {
                             final int scrollDistance = getSource(0).getY();
 
@@ -297,7 +298,7 @@ public abstract class Controller
                                     breakpoint++;
                                     if (breakpoint == 3)
                                     {
-                                        AppSettings.getInstance().getConnectionManager()
+                                        ConnectionManager
                                             .send(Range.SCROLL_DOWN);
                                         this.breakpoint = 0;
                                     }
@@ -306,7 +307,7 @@ public abstract class Controller
                                     this.breakpoint++;
                                     if (this.breakpoint == 3)
                                     {
-                                        AppSettings.getInstance().getConnectionManager()
+                                        ConnectionManager
                                             .send(Range.SCROLL_UP);
                                         this.breakpoint = 0;
                                     }
@@ -373,11 +374,11 @@ public abstract class Controller
 
     private void setPressureToggle(final float pressure)
     {
-        if (AppSettings.getInstance().getSettingsElements().getPressureClickEnabled())
+        if (AppSettings.getSettingsElements().getPressureClickEnabled())
         {
-            if (AppSettings.getInstance().getSettingsElements().getPressureMode() == PressureMode.TOGGLE)
+            if (AppSettings.getSettingsElements().getPressureMode() == PressureMode.TOGGLE)
             {
-                if (pressure > AppSettings.getInstance().getSettingsElements().getPressureSensitivity())
+                if (pressure > AppSettings.getSettingsElements().getPressureSensitivity())
                 {
                     this.pressureToggle = !this.pressureToggle;
                 }
@@ -403,13 +404,13 @@ public abstract class Controller
 
     private void setMouseDown()
     {
-        AppSettings.getInstance().getConnectionManager().send(Toggle.MOUSE_DOWN);
-        AppSettings.getInstance().getCanvasSettings().getPaint().setColor(Color.RED);
+        ConnectionManager.send(Toggle.MOUSE_DOWN);
+        AppSettings.getCanvasSettings().getPaint().setColor(Color.RED);
     }
 
     private void setMouseUp()
     {
-        AppSettings.getInstance().getConnectionManager().send(Toggle.MOUSE_UP);
-        AppSettings.getInstance().getCanvasSettings().getPaint().setColor(Color.WHITE);
+        ConnectionManager.send(Toggle.MOUSE_UP);
+        AppSettings.getCanvasSettings().getPaint().setColor(Color.WHITE);
     }
 }

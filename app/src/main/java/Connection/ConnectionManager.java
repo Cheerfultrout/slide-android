@@ -12,7 +12,7 @@ public class ConnectionManager
         /*because we are getting the instantiated ConnectionManager from AppSettings,
         we can make the method static, and call ConnectionManager.send rather than
         first having to acquire an instance of it from calling classes*/
-        ConnectionManager inContext = AppSettings.getInstance().getConnectionManager();
+        ConnectionManager inContext = AppSettings.getConnectionManager();
         if (inContext.getConnectionMode() == ConnectionMode.WIFI)
         {
             inContext.getNetworkConnectionManager().send(pack);

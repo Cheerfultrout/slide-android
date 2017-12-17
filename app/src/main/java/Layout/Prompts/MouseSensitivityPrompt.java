@@ -31,15 +31,15 @@ public class MouseSensitivityPrompt extends SliderPrompt
                     setSensitivity(1);
                 }
 
-                AppSettings.getInstance().getSettingsElements().setMouseSensitivity(getSensitivity());
+                AppSettings.getSettingsElements().setMouseSensitivity(getSensitivity());
 
-                AppSettings.getInstance().getSettingsElements().getPref(
+                AppSettings.getSettingsElements().getPref(
                     PreferenceName.MOUSE_SENSITIVITY).setSummary(
                     "Mouse Sensitivity: "
                         + Double.toString(getSensitivity()));
 
 
-                AppSettings.getInstance().getSystemSettings().setMouseSensitivity(
+                AppSettings.getSystemSettings().setMouseSensitivity(
                     activity,
                     (float) getSensitivity());
 

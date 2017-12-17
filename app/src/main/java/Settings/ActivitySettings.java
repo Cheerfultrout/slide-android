@@ -33,15 +33,15 @@ public class ActivitySettings
         switch (activity)
         {
             case SETTINGS:
-                context.startActivity(getSettingsIntent());
+                context.startActivity(this.settingsIntent);
                 break;
 
             case CANVAS:
-                context.startActivity(getCanvasIntent());
+                context.startActivity(this.canvasIntent);
                 break;
 
             case WELCOME:
-                context.startActivity(getWelcomeIntent());
+                context.startActivity(this.welcomeIntent);
                 break;
         }
     }
@@ -51,12 +51,13 @@ public class ActivitySettings
         context.startActivity(activity);
     }
 
+    //getters
     private Intent getSettingsIntent()
     {
         return this.settingsIntent;
     }
 
-    public Intent getCanvasIntent()
+    private Intent getCanvasIntent()
     {
         return this.canvasIntent;
     }

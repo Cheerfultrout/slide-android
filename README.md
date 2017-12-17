@@ -6,11 +6,11 @@ Reasons for updating Slide:
 
 known issues:
 -On-screen keyboard is sending only '/' when keys are pressed (multiple for multi-char inputs)
--> also applies to copy/paste operations
 -when connected over USB, device name displays simply as "local host" since the 7.0+ crash fix
 -desktop client won't launch if adb.exe is already running. This is a good thing, except that
 on closing, adb.exe stays running in the background (when it probably should be closed on exit)
 -apparently the app is no longer indexable by google search or something? (doesn't matter to me)
+-connecting to the server application is finicky (may need an update)
 
 NB:
 -While I've done a decent amount of java coding, this is the first Android app I've really worked

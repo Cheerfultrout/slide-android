@@ -50,7 +50,7 @@ public class Broadcast
         try
         {
             ipAddress =
-                AppSettings.getInstance().getSystemSettings()
+                AppSettings.getSystemSettings()
                     .getSystemInfo()
                     .ipv4Address()
                     .get(0)
@@ -67,10 +67,10 @@ public class Broadcast
         }
 
         final byte[] sendData =
-            (ipAddress + "," + AppSettings.getInstance().getSystemSettings()
+            (ipAddress + "," + AppSettings.getSystemSettings()
                 .getSystemInfo()
                 .getDeviceManufacturer() + ","
-                + AppSettings.getInstance().getSystemSettings().getSystemInfo().getDeviceModel()).getBytes();
+                + AppSettings.getSystemSettings().getSystemInfo().getDeviceModel()).getBytes();
 
         final DatagramPacket sendPacket = new DatagramPacket(
             sendData,

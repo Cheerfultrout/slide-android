@@ -29,15 +29,15 @@ public class PressureSensitivityPrompt extends SliderPrompt
                     setSensitivity(0.5);
                 }
 
-                AppSettings.getInstance().getSettingsElements().setPressureSensitivity(getSensitivity());
+                AppSettings.getSettingsElements().setPressureSensitivity(getSensitivity());
 
-                AppSettings.getInstance().getSettingsElements().setPressureSensitivity(
+                AppSettings.getSettingsElements().setPressureSensitivity(
                     getSensitivity());
-                AppSettings.getInstance().getSettingsElements().getPref(
+                AppSettings.getSettingsElements().getPref(
                     PreferenceName.CUSTOM_PRESSURE_SENSITIVITY).setSummary(
                     "Pressure sensitivity: " + Double.toString(getSensitivity()));
 
-                AppSettings.getInstance().getSystemSettings().setPressureSensitivity(
+                AppSettings.getSystemSettings().setPressureSensitivity(
                     activity,
                     (float) getSensitivity());
 

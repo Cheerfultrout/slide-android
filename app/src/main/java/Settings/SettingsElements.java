@@ -102,7 +102,7 @@ public class SettingsElements
         setPressureClickEnabled(getPrefPressureEnabled().isChecked());
 
         setMouseSensitivity(1);
-        AppSettings.getInstance().getSystemSettings().setMouseSensitivity(
+        AppSettings.getSystemSettings().setMouseSensitivity(
             activity,
             (float) getMouseSensitivity());
 
@@ -136,8 +136,8 @@ public class SettingsElements
         setScrollEnabled(getPrefScrollEnabled().isChecked());
         setPressureClickEnabled(getPrefPressureEnabled().isChecked());
 
-        final float pSen = AppSettings.getInstance().getSystemSettings().getPressureSensitivity(activity);
-        final float mSen = AppSettings.getInstance().getSystemSettings().getMouseSensitivity(activity);
+        final float pSen = AppSettings.getSystemSettings().getPressureSensitivity(activity);
+        final float mSen = AppSettings.getSystemSettings().getMouseSensitivity(activity);
 
         setPressureSensitivity(pSen);
         setMouseSensitivity(mSen);
@@ -465,21 +465,21 @@ public class SettingsElements
         switch (getPrefName(preference.getKey()))
         {
             case CONNECTION_STATUS:
-                AppSettings.getInstance().getActivitySettings().loadActivity(getActivity(), AppActivity.CANVAS);
+                AppSettings.getActivitySettings().loadActivity(getActivity(), AppActivity.CANVAS);
                 break;
 
             case MOUSE_SENSITIVITY:
-                AppSettings.getInstance().getSettingsElements().getMouseSliderPrompt().show();
+                AppSettings.getSettingsElements().getMouseSliderPrompt().show();
                 break;
 
             case CUSTOM_PRESSURE_SENSITIVITY:
-                AppSettings.getInstance().getSettingsElements().getPressureSliderPrompt().show();
+                AppSettings.getSettingsElements().getPressureSliderPrompt().show();
                 break;
 
             case HELP:
                 getActivity().startActivity(new Intent(
                     Intent.ACTION_VIEW, Uri.parse(
-                        AppSettings.getInstance().getSystemSettings().getSystemInfo().getWebsite("troubleshooting")
+                        AppSettings.getSystemSettings().getSystemInfo().getWebsite("troubleshooting")
                     )
                 ));
                 break;

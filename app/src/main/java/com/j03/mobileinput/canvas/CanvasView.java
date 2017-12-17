@@ -42,7 +42,7 @@ public class CanvasView
     {
         getSource(0).setCoordinates((int) event.getX(0), (int) event.getY(0));
 
-        if (AppSettings.getInstance().getSettingsElements().getDrawPathEnabled())
+        if (AppSettings.getSettingsElements().getDrawPathEnabled())
         {
             final float touchX = event.getX();
             final float touchY = event.getY();
@@ -75,7 +75,7 @@ public class CanvasView
         drawBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         mCanvas = new Canvas(drawBitmap);
         mCanvas.drawColor(backgroundColor);
-        AppSettings.getInstance().getCanvasSettings().getPaint().setColor(drawColor);
+        AppSettings.getCanvasSettings().getPaint().setColor(drawColor);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class CanvasView
     {
         super.onDraw(canvas);
         canvas.drawBitmap(drawBitmap, 0, 0, drawPaint);
-        canvas.drawPath(drawPath, AppSettings.getInstance().getCanvasSettings().getPaint());
+        canvas.drawPath(drawPath, AppSettings.getCanvasSettings().getPaint());
     }
 
     @Override
@@ -114,13 +114,13 @@ public class CanvasView
     public void touchUp()
     {
         drawPath.lineTo(mX, mY);
-        mCanvas.drawPath(drawPath, AppSettings.getInstance().getCanvasSettings().getPaint());
+        mCanvas.drawPath(drawPath, AppSettings.getCanvasSettings().getPaint());
         drawPath.reset();
         //clear drawing
-        if (AppSettings.getInstance().getSettingsElements().getAutoClearEnabled())
+        if (AppSettings.getSettingsElements().getAutoClearEnabled())
         {
             mCanvas.drawColor(backgroundColor);
         }
-        AppSettings.getInstance().getCanvasSettings().getPaint().setColor(drawColor);
+        AppSettings.getCanvasSettings().getPaint().setColor(drawColor);
     }
 }

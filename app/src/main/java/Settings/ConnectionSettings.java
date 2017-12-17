@@ -87,18 +87,17 @@ public class ConnectionSettings
     //updates the connection mode text
     private static void updateUi(final ConnectionMode mode)
     {
-        AppSettings inContext = AppSettings.getInstance();
-        Preference inContextB = inContext.getSettingsElements().getPrefConnectionStatus();
-        inContextB.setEnabled(false);
+        Preference inContext = AppSettings.getSettingsElements().getPrefConnectionStatus();
+        inContext.setEnabled(false);
         String summary = "Listening on ";
         if (mode == ConnectionMode.USB)
         {
             summary+="USB";
         } else if (mode == ConnectionMode.WIFI)
         {
-            final SystemInfo ipv4 = inContext.getSystemSettings().getSystemInfo();
+            final SystemInfo ipv4 = AppSettings.getSystemSettings().getSystemInfo();
             summary += "WiFi (" + ipv4.ipv4Address().get(0).getHostAddress() + ")";
         }
-        inContextB.setSummary(summary);
+        inContext.setSummary(summary);
     }
 }

@@ -34,7 +34,7 @@ import Settings.Enums.ConnectionMode;
 public class CanvasActivity
     extends ActionBarActivity
 {
-
+    //--> move this to a field of appsettings, and access via appsettings.getInstance().getCanvas()
     public static Activity mainActivityContext;
     private static Runnable mHideRunnable;
 
@@ -85,23 +85,23 @@ public class CanvasActivity
 
             case R.id.action_hide:
                 // Hide actionbar when not starting from the top
-                if (AppSettings.getInstance().getSystemSettings().getKitKat())
+                if (AppSettings.getSystemSettings().getKitKat())
                 {
                     hideUi(CanvasActivity.mainActivityContext);
                 }
                 return true;
 
             case R.id.show_settings:
-                AppSettings.getInstance().getSettingsElements().getPrefConnectionStatus().setEnabled(true);
-                AppSettings.getInstance().getSettingsElements().getPrefConnectionStatus().setTitle("Tap to resume");
-                if (AppSettings.getInstance().getConnectionManager().getConnectionMode() == ConnectionMode.WIFI)
+                AppSettings.getSettingsElements().getPrefConnectionStatus().setEnabled(true);
+                AppSettings.getSettingsElements().getPrefConnectionStatus().setTitle("Tap to resume");
+                if (AppSettings.getConnectionManager().getConnectionMode() == ConnectionMode.WIFI)
                 {
-                    final SystemInfo ipv4 = AppSettings.getInstance().getSystemSettings().getSystemInfo();
-                    AppSettings.getInstance().getSettingsElements().getPrefConnectionStatus().setSummary(
+                    final SystemInfo ipv4 = AppSettings.getSystemSettings().getSystemInfo();
+                    AppSettings.getSettingsElements().getPrefConnectionStatus().setSummary(
                         "Connected via WiFi (" + ipv4.ipv4Address().get(0).getHostAddress() + ")");
-                } else if (AppSettings.getInstance().getConnectionManager().getConnectionMode() == ConnectionMode.USB)
+                } else if (AppSettings.getConnectionManager().getConnectionMode() == ConnectionMode.USB)
                 {
-                    AppSettings.getInstance().getSettingsElements().getPrefConnectionStatus().setSummary(
+                    AppSettings.getSettingsElements().getPrefConnectionStatus().setSummary(
                         "Connected via USB");
                 }
                 finish();
@@ -126,18 +126,18 @@ public class CanvasActivity
                 .build());
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        mainActivityContext = this;
+        CanvasActivity.mainActivityContext = this;
         /*
         Controller c = new Controller(this);*/
 
-        if (AppSettings.getInstance().getSettingsElements().getPositioningMode() == PositioningMode.ABSOLUTE)
+        if (AppSettings.getSettingsElements().getPositioningMode() == PositioningMode.ABSOLUTE)
         {
             this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
 
         if (getSupportActionBar() != null)
         {
-            if (AppSettings.getInstance().getSettingsElements().getActionBarEnabled())
+            if (AppSettings.getSettingsElements().getActionBarEnabled())
             {
                 getSupportActionBar().show();
             } else
@@ -168,7 +168,7 @@ public class CanvasActivity
             @Override
             public void run()
             {
-                hideUi(mainActivityContext);
+                hideUi(CanvasActivity.mainActivityContext);
             }
         };
     }
@@ -202,10 +202,11 @@ public class CanvasActivity
         } else
         {
             // TODO: debug keyboard only sending '/'
-            final short[] KEYBOARD = {10000 + 9, 100};
             if (keyCode == KeyEvent.KEYCODE_SHIFT_LEFT
                 || keyCode == KeyEvent.KEYCODE_SHIFT_RIGHT)
             {
+                //changed from hardcoded "100" to "(short) keyCode"
+                final short[] KEYBOARD = {10000 + 9, (short) keyCode};
                 ConnectionManager.send(KEYBOARD);
             }
         }
@@ -231,17 +232,17 @@ public class CanvasActivity
 
     private void closeConnection()
     {
-        if (AppSettings.getInstance().getConnectionManager().getConnectionMode() == ConnectionMode.WIFI)
+        if (AppSettings.getConnectionManager().getConnectionMode() == ConnectionMode.WIFI)
         {
             //this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-            AppSettings.getInstance().getConnectionManager().getNetworkConnectionManager().close();
-        } else if (AppSettings.getInstance().getConnectionManager().getConnectionMode() == ConnectionMode.USB)
+            AppSettings.getConnectionManager().getNetworkConnectionManager().close();
+        } else if (AppSettings.getConnectionManager().getConnectionMode() == ConnectionMode.USB)
         {
             //this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-            AppSettings.getInstance().getConnectionManager().getUsbConnectionManager().close();
+            AppSettings.getConnectionManager().getUsbConnectionManager().close();
         }
 
-        AppSettings.getInstance().getConnectionManager().reinitializeServers();
+        AppSettings.getConnectionManager().reinitializeServers();
 
         finish();
     }

@@ -15,10 +15,10 @@ public class UsbConnectionManager
         writeToStream(pack);
     }
 
-    public void send(final PositioningMode positioningMode, final short sensitivity)
+    void send(final PositioningMode positioningMode, final short sensitivity)
     {
         short[] pack = null;
-        final short version = AppSettings.getInstance().getSystemSettings().getSystemInfo().getVersion();
+        final short version = AppSettings.getSystemSettings().getSystemInfo().getVersion();
 
         switch (positioningMode)
         {
