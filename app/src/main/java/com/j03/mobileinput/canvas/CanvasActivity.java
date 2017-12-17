@@ -23,6 +23,7 @@ import java.util.TimerTask;
 
 import Common.SystemInfo;
 import Common.Toast.Toaster;
+import Connection.ConnectionManager;
 import Gesture.Binding.Actions.Trigger;
 import Layout.Enums.PositioningMode;
 import Settings.AppSettings;
@@ -68,17 +69,17 @@ public class CanvasActivity
                 return true;
 
             case R.id.action_cut:
-                AppSettings.getInstance().getConnectionManager().send(Trigger.CUT);
+                ConnectionManager.send(Trigger.CUT);
                 Toaster.getInstance().showToast("Cut", getApplicationContext());
                 return true;
 
             case R.id.action_copy:
-                AppSettings.getInstance().getConnectionManager().send(Trigger.COPY);
+                ConnectionManager.send(Trigger.COPY);
                 Toaster.getInstance().showToast("Copy", getApplicationContext());
                 return true;
 
             case R.id.action_paste:
-                AppSettings.getInstance().getConnectionManager().send(Trigger.PASTE);
+                ConnectionManager.send(Trigger.PASTE);
                 Toaster.getInstance().showToast("Paste", getApplicationContext());
                 return true;
 
@@ -200,11 +201,12 @@ public class CanvasActivity
             return true;
         } else
         {
+            // TODO: debug keyboard only sending '/'
             final short[] KEYBOARD = {10000 + 9, 100};
             if (keyCode == KeyEvent.KEYCODE_SHIFT_LEFT
                 || keyCode == KeyEvent.KEYCODE_SHIFT_RIGHT)
             {
-                AppSettings.getInstance().getConnectionManager().send(KEYBOARD);
+                ConnectionManager.send(KEYBOARD);
             }
         }
         return super.onKeyDown(keyCode, event);
@@ -216,7 +218,7 @@ public class CanvasActivity
         if (keyCode != KeyEvent.KEYCODE_BACK && keyCode != KeyEvent.KEYCODE_MENU)
         {
             final short[] KEYBOARD = {10000 + 9, (short) keyCode};
-            AppSettings.getInstance().getConnectionManager().send(KEYBOARD);
+            ConnectionManager.send(KEYBOARD);
         }
         return super.onKeyUp(keyCode, event);
     }

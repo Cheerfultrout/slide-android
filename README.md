@@ -7,10 +7,16 @@ Reasons for updating Slide:
 known issues:
 -On-screen keyboard is sending only '/' when keys are pressed (multiple for multi-char inputs)
 -> also applies to copy/paste operations
+-when connected over USB, device name displays simply as "local host" since the 7.0+ crash fix
+-desktop client won't launch if adb.exe is already running. This is a good thing, except that
+on closing, adb.exe stays running in the background (when it probably should be closed on exit)
+-apparently the app is no longer indexable by google search or something? (doesn't matter to me)
 
 NB:
--I don't have access to an SPen, and I'm unlikely to gain access, so I won't be updating
-anything SPen-related beyond refactoring/cleanup
+-While I've done a decent amount of java coding, this is the first Android app I've really worked
+on, so progress may be slow
+-I don't have access to an SPen, and I'm unlikely to gain access, so I probably won't be
+updating anything SPen-related beyond refactoring/cleanup
 --> a reported issue was SPen input not working on certain devices - I won't be fixing that
 -Emulated devices cannot be used for any in-depth debugging, because (as far as I know) there
 isn't a way to actually connect to the desktop client from an emulated device. (oh well)

@@ -1,5 +1,7 @@
 package Settings;
 
+import android.preference.Preference;
+
 import Common.SystemInfo;
 import Connection.Network.NetworkConnectionManager;
 import Connection.USB.UsbConnectionManager;
@@ -82,19 +84,21 @@ public class ConnectionSettings
         return this.usbConnectionManager;
     }
 
-
-    private void updateUi(final ConnectionMode mode)
+    //updates the connection mode text
+    private static void updateUi(final ConnectionMode mode)
     {
-        AppSettings.getInstance().getSettingsElements().getPrefConnectionStatus().setEnabled(false);
-        final SystemInfo ipv4 = AppSettings.getInstance().getSystemSettings().getSystemInfo();
+        AppSettings inContext = AppSettings.getInstance();
+        Preference inContextB = inContext.getSettingsElements().getPrefConnectionStatus();
+        inContextB.setEnabled(false);
+        String summary = "Listening on ";
         if (mode == ConnectionMode.USB)
         {
-            AppSettings.getInstance().getSettingsElements().getPrefConnectionStatus().setSummary(
-                "Listening on USB");
+            summary+="USB";
         } else if (mode == ConnectionMode.WIFI)
         {
-            AppSettings.getInstance().getSettingsElements().getPrefConnectionStatus().setSummary(
-                "Listening on WiFi (" + ipv4.ipv4Address().get(0).getHostAddress() + ")");
+            final SystemInfo ipv4 = inContext.getSystemSettings().getSystemInfo();
+            summary += "WiFi (" + ipv4.ipv4Address().get(0).getHostAddress() + ")";
         }
+        inContextB.setSummary(summary);
     }
 }

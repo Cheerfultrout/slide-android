@@ -416,12 +416,10 @@ public class SettingsElements
     {
         switch (mode)
         {
-            case INITIAL_TOUCH:
+            case INITIAL_TOUCH:default://(INITIAL_TOUCH is default)
                 return 0;
             case TOGGLE:
                 return 1;
-            default:
-                return 0;
         }
     }
 
@@ -434,12 +432,10 @@ public class SettingsElements
     {
         switch (mode)
         {
-            case RELATIVE:
+            case RELATIVE:default://(RELATIVE is default)
                 return 0;
             case ABSOLUTE:
                 return 1;
-            default:
-                return 0;
         }
     }
 
@@ -447,7 +443,7 @@ public class SettingsElements
     {
         switch (mode)
         {
-            case HIGH:
+            case HIGH:default://(HIGH is default)
                 return 0;
             case MEDIUM:
                 return 1;
@@ -455,8 +451,6 @@ public class SettingsElements
                 return 2;
             case CUSTOM:
                 return 3;
-            default:
-                return 0;
         }
     }
 
