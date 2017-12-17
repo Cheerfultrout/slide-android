@@ -7,10 +7,12 @@ Reasons for updating Slide:
 known issues:
 -On-screen keyboard is sending only '/' when keys are pressed (multiple for multi-char inputs)
 -when connected over USB, device name displays simply as "local host" since the 7.0+ crash fix
+-connecting to the server application has issues unless resuming an in-the-background session
+-> over USB this also fixes device names displaying as "localhost"
+-> may be related to the 'fix' to make it run on 7.0+ devices
 -desktop client won't launch if adb.exe is already running. This is a good thing, except that
 on closing, adb.exe stays running in the background (when it probably should be closed on exit)
 -apparently the app is no longer indexable by google search or something? (doesn't matter to me)
--connecting to the server application is finicky (may need an update)
 
 NB:
 -While I've done a decent amount of java coding, this is the first Android app I've really worked
@@ -33,8 +35,3 @@ users to connect via USB without accessing the developer options, which is a goo
 
 fixed:
 -no longer crashes on Android 7.0+
-
-observations:
--whereas connecting over USB has normally been somewhat finnicky recently and devices would show up
-only as "localhost" resuming an already open slide seems to work consistently, and the actual device
-name shows up in place of local host. -> investigate "onResume" method of canvas

@@ -38,7 +38,7 @@ public abstract class Controller
     {
         super(context);
 
-        gesture = new GestureDetector(this);
+        gesture = new GestureDetector(context,this);
 
         saved = new int[2];
         source = new ArrayList<>();
