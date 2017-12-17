@@ -33,3 +33,8 @@ users to connect via USB without accessing the developer options, which is a goo
 
 fixed:
 -no longer crashes on Android 7.0+
+
+observations:
+-whereas connecting over USB has normally been somewhat finnicky recently and devices would show up
+only as "localhost" resuming an already open slide seems to work consistently, and the actual device
+name shows up in place of local host. -> investigate "onResume" method of canvas

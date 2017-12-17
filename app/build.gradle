@@ -17,11 +17,17 @@ android {
     }
 }
 
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 dependencies {
-    compile files('libs/pen-v3.0.19.jar')
-    compile files('libs/libspen23.jar')
-    compile files('libs/sdk-v1.0.0.jar')
+    compile name: "pen-v3.0.19"
+    compile name: "libspen23"
+    compile name: "sdk-v1.0.0"
 
     compile "com.android.support:support-v4:22.0.0"
-    compile 'com.android.support:appcompat-v7:22.0.0'
+    compile "com.android.support:appcompat-v7:22.0.0"
 }
